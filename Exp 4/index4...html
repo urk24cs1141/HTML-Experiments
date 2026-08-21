@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced CSS3 Webpage</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* HEADER */
+        header {
+            height: 150px;
+            background: linear-gradient(to right, #1e5799, #4a76b8);
+            color: white;
+            padding: 40px;
+            font-size: 30px;
+            border-radius: 0 0 25px 25px;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            background-color: #888;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            width: 20%;
+            padding: 12px;
+            cursor: pointer;
+            color: white;
+        }
+
+        nav ul li:hover {
+            background-color: red;
+        }
+
+        /* DROPDOWN */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 140px;
+            background-color: green;
+            border-radius: 15px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .dropdown-content a:nth-child(odd) {
+            background-color: #7CFC00;
+        }
+
+        .dropdown-content a:nth-child(even) {
+            background-color: green;
+        }
+
+        .dropdown-content a:hover {
+            background-color: orange;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* MAIN SECTION - LAPTOP BACKGROUND */
+        .main {
+            min-height: 650px;
+            padding: 35px;
+
+            background-image:
+                linear-gradient(rgba(0,0,0,0.4),
+                rgba(0,0,0,0.4)),
+                url("image4.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* FLOWER AND FRUIT IMAGES */
+        .images {
+            margin-bottom: 25px;
+        }
+
+        .images img {
+            width: 180px;
+            height: 130px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 20px;
+            border: 4px solid white;
+            box-shadow: 4px 4px 10px black;
+        }
+
+        /* FORM BOX */
+        .box {
+            width: 320px;
+            background-color: white;
+            display: inline-block;
+            vertical-align: top;
+            margin: 15px;
+            padding: 25px;
+
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px gray;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        /* PSEUDO CLASSES */
+
+        input:focus {
+            border: 3px solid red;
+            background-color: lightgreen;
+            outline: none;
+        }
+
+        input:required {
+            border: 2px solid blue;
+        }
+
+        input[type="email"]:invalid {
+            color: red;
+        }
+
+        input[type="email"]:valid {
+            color: blue;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1769d1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #f5dfb8;
+            padding: 25px;
+            font-style: italic;
+            font-weight: bold;
+
+            border: 15px solid transparent;
+
+            border-image:
+                linear-gradient(45deg, orange, yellow, orange) 30 round;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>My Website</h1>
+    </header>
+
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+
+            <li>Home</li>
+
+            <li class="dropdown">
+                About
+
+                <div class="dropdown-content">
+                    <a href="#">Item 1</a>
+                    <a href="#">Item 2</a>
+                    <a href="#">Item 3</a>
+                    <a href="#">Item 4</a>
+                </div>
+
+            </li>
+
+            <li>Model</li>
+            <li>Others</li>
+
+        </ul>
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <!-- 3 IMAGES -->
+        <div class="images">
+
+            <!-- FLOWER 1 -->
+            <img src="image1.jpg" alt="Flower 1">
+
+            <!-- FLOWER 2 -->
+            <img src="image2.jpg" alt="Flower 2">
+
+            <!-- FRUIT -->
+            <img src="image3.jpg" alt="Fruit">
+
+        </div>
+
+
+        <!-- SIGN IN -->
+        <div class="box">
+
+            <h2>Sign In</h2>
+
+            <input type="text"
+                   placeholder="Enter Username / Email / Phone Number"
+                   required>
+
+            <input type="password"
+                   placeholder="Enter Password"
+                   required>
+
+            <button>Sign In</button>
+
+        </div>
+
+
+        <!-- SIGN UP -->
+        <div class="box">
+
+            <h2>Sign Up</h2>
+
+            <input type="text"
+                   placeholder="Enter Name"
+                   required>
+
+            <input type="email"
+                   placeholder="Enter Email"
+                   required>
+
+            <input type="password"
+                   placeholder="Enter Password"
+                   required>
+
+            <button>Sign Up</button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        Your address
+
+        <br><br>
+
+        © 2020-2021. (URK24CS1141) -
+        Web Technology Lab Batch 1.
+        All Rights Reserved.
+
+    </footer>
+
+</body>
+</html>
