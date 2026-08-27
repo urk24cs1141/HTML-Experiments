@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Font Size Using Mouse Events</title>
+</head>
+
+<body>
+
+    <h1>Increase and Decrease Font Size</h1>
+
+    <p id="text"
+       onmouseover="increaseSize()"
+       onmouseout="decreaseSize()">
+
+        Move your mouse over this text to increase the font size.
+        Move your mouse away to decrease the font size.
+
+    </p>
+
+    <script>
+
+        function increaseSize() {
+            document.getElementById("text").style.fontSize = "30px";
+        }
+
+        function decreaseSize() {
+            document.getElementById("text").style.fontSize = "16px";
+        }
+
+    </script>
+
+</body>
+</html>

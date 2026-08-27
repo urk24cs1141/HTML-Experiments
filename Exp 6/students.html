@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array of Student Objects</title>
+</head>
+
+<body>
+
+    <h1>Student Details</h1>
+
+    <button onclick="displayStudents()">
+        Display Students
+    </button>
+
+    <div id="output"></div>
+
+    <script>
+
+        var students = [
+            {
+                name: "Navaneetha",
+                age: 20,
+                course: "B.Tech"
+            },
+            {
+                name: "Rahul",
+                age: 21,
+                course: "B.Tech"
+            },
+            {
+                name: "Priya",
+                age: 20,
+                course: "B.Tech"
+            }
+        ];
+
+        function displayStudents() {
+
+            var result = "";
+
+            for (var i = 0; i < students.length; i++) {
+
+                result += "<p>";
+
+                result += "Name: " +
+                    students[i].name + "<br>";
+
+                result += "Age: " +
+                    students[i].age + "<br>";
+
+                result += "Course: " +
+                    students[i].course;
+
+                result += "</p><hr>";
+            }
+
+            document.getElementById("output").innerHTML =
+                result;
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Move and Stop Car</title>
+</head>
+
+<body>
+
+    <h1>Move and Stop a Car</h1>
+
+    <button onclick="moveCar()">Move</button>
+    <button onclick="stopCar()">Stop</button>
+
+    <br><br>
+
+    <img src="car.jpg" id="car" width="200">
+
+    <script>
+
+        var position = 0;
+        var timer;
+
+        function moveCar() {
+
+            clearInterval(timer);
+
+            timer = setInterval(function() {
+
+                position = position + 5;
+
+                document.getElementById("car").style.marginLeft =
+                    position + "px";
+
+            }, 100);
+
+        }
+
+        function stopCar() {
+
+            clearInterval(timer);
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Background Color</title>
+</head>
+
+<body>
+
+    <h1>Background Color Changes Automatically</h1>
+
+    <script>
+
+        var colors = [
+            "red",
+            "yellow",
+            "green",
+            "blue",
+            "pink",
+            "orange"
+        ];
+
+        var i = 0;
+
+        function changeColor() {
+
+            document.body.style.backgroundColor = colors[i];
+
+            i++;
+
+            if (i == colors.length) {
+                i = 0;
+            }
+        }
+
+        setInterval(changeColor, 1000);
+
+    </script>
+
+</body>
+</html>
