@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Addition Calculator</title>
+    </head>
+    <body>
+        <h2>Addition calculator</h2>
+        <input type = "number" id="num1" placeholder="Enter first number">
+        <input type = "number" id="num2" placeholder="Enter secondnumber">
+        <br><br>
+
+        <button onclick = "calculate('+')"> + </button>
+        <h3 id = "result" > Result :</h3>
+
+        <script>
+            function calculate (op) {
+                let a=Number(document.getElementById("num1").value);
+                let b=Number(document.getElementById("num2").value);
+                let result;
+                if (op=='+')
+                 result = a+b;
+                document.getElementById("result").innerHTML="Result: " + result;
+            }
+            </script>
+            
+        </body>
+        </html>

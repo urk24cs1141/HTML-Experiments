@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cake Shop</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <style>
+        body {
+            text-align:center;
+            font-family:Arial;
+        }
+
+        h2 {
+            color:blue;
+        }
+        input {
+            width:300px;
+            margin:5px;
+        }
+        button {
+            background-color:blue;
+            color:white;
+            padding:8px, 40px;
+        }
+        #total {
+            color:red;
+            font-size:25px;
+        }
+    </style>
+    </head>
+
+    <body>
+
+    <hl style = "background-color:red;color:white;">CAKE SHOP</hl>
+
+    <h2>Order Cake</h2>
+
+    Color Cake(Quantity)<br>
+    <input type="text" id="color" value="2">
+    <br>
+
+     Brown Cake(Quantity)<br>
+    <input type="text" id="brown" value="1">
+    <br>
+
+    Milky Cake(Quantity)<br>
+    <input type="text" id="milky" value="2">
+    <br>
+
+    Black Forest Cake(Quantity)<br>
+    <input type="text" id="black" value="1">
+    <br><br>
+
+    <button id="order">Place Order</button>
+
+    <h2>Purchase Order Bill!!</h2>
+
+    <h3>Total Price: <span id="total">Rs.0</span></h3>
+
+     <script>
+
+        $(document).ready(function() {
+
+            $("#order").click(function() {
+
+                let color = Number($("#color").val()) * 300;
+                let brown = Number($("#brown").val()) * 200;
+                let milky = Number($("#milky").val()) * 250;
+                let black = Number($("#black").val()) * 350;
+
+                let total = color + brown + milky + black;
+
+                $("#total").html("Rs." + total);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Store - jQuery Effects</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        #show {
+            background-color: blue;
+        }
+
+        #hide {
+            background-color: gray;
+        }
+
+        #fade {
+            background-color: orange;
+        }
+
+        #slide {
+            background-color: green;
+        }
+
+        #animate {
+            background-color: purple;
+        }
+
+        #stop {
+            background-color: red;
+        }
+
+        #reset {
+            background-color: #00a0a0;
+        }
+
+        #product {
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #ddd;
+            background-color: #fff8dc;
+        }
+
+        #product img {
+            width: 150px;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin: 20px auto;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Online Store</h1>
+
+    <p>Shop Smart, Shop Easy!</p>
+
+    <!-- Buttons -->
+
+    <button id="show">Show</button>
+
+    <button id="hide">Hide</button>
+
+    <button id="fade">Fade</button>
+
+    <button id="slide">Slide</button>
+
+    <button id="animate">Animate</button>
+
+    <button id="stop">Stop</button>
+
+    <button id="reset">Reset</button>
+
+
+    <!-- Product Details -->
+
+    <div id="product">
+
+        <h2>Product Details</h2>
+
+        <h3>Laptop Pro</h3>
+
+        <img src="laptop.jpg" alt="Laptop">
+
+        <p><b>Price:</b> ₹55,000</p>
+
+        <p><b>Category:</b> Electronics</p>
+
+        <p><b>In Stock:</b> Yes</p>
+
+        <p>A high performance laptop for work and play.</p>
+
+    </div>
+
+
+    <!-- Animation Box -->
+
+    <div id="box"></div>
+
+
+    <script>
+
+        $(document).ready(function() {
+
+            // Show
+            $("#show").click(function() {
+                $("#product").show();
+            });
+
+
+            // Hide
+            $("#hide").click(function() {
+                $("#product").hide();
+            });
+
+
+            // Fade
+            $("#fade").click(function() {
+                $("#product").fadeToggle(800);
+            });
+
+
+            // Slide
+            $("#slide").click(function() {
+                $("#product").slideToggle(800);
+            });
+
+
+            // Animate
+            $("#animate").click(function() {
+
+                $("#box").animate({
+                    width: "200px",
+                    height: "150px",
+                    opacity: "0.5"
+                }, 1000);
+
+            });
+
+
+            // Stop
+            $("#stop").click(function() {
+                $("#box").stop();
+                $("#product").stop();
+            });
+
+
+            // Reset
+            $("#reset").click(function() {
+
+                $("#product").show();
+
+                $("#box").stop(true, true).css({
+                    width: "100px",
+                    height: "100px",
+                    opacity: "1"
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

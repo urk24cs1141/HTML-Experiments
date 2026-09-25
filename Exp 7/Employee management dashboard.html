@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Employee Management Dashboard</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 12px;
+        }
+
+        th {
+            background-color: lightgray;
+        }
+
+        .selected {
+            background-color: yellow;
+        }
+
+        #status {
+            font-weight: bold;
+            margin: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Employee Management Dashboard</h1>
+
+<input type="text" id="empId" placeholder="Employee ID">
+
+<input type="text" id="empName" placeholder="Employee Name">
+
+<input type="text" id="dept" placeholder="Department">
+
+<br>
+
+<button id="add">Add Employee</button>
+<button id="update">Update Employee</button>
+<button id="remove">Remove Employee</button>
+<button id="dimensions">Show Table Dimensions</button>
+
+<p id="status"></p>
+
+<table id="employeeTable">
+
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Department</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td>101</td>
+            <td>Riya</td>
+            <td>HR</td>
+            <td><button class="select">Select</button></td>
+        </tr>
+
+        <tr>
+            <td>102</td>
+            <td>Arjun</td>
+            <td>IT</td>
+            <td><button class="select">Select</button></td>
+        </tr>
+
+        <tr>
+            <td>103</td>
+            <td>Meera</td>
+            <td>Finance</td>
+            <td><button class="select">Select</button></td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+<script>
+
+$(document).ready(function() {
+
+    var selectedRow = null;
+
+
+    // SELECT EMPLOYEE
+    $(document).on("click", ".select", function() {
+
+        selectedRow = $(this).closest("tr");
+
+        $(".selected").removeClass("selected");
+
+        selectedRow.addClass("selected");
+
+        $("#empId").val(
+            selectedRow.find("td:eq(0)").text()
+        );
+
+        $("#empName").val(
+            selectedRow.find("td:eq(1)").text()
+        );
+
+        $("#dept").val(
+            selectedRow.find("td:eq(2)").text()
+        );
+
+        $("#status").text(
+            "Selected employee details loaded."
+        );
+
+    });
+
+
+    // ADD EMPLOYEE
+    $("#add").click(function() {
+
+        var id = $("#empId").val();
+        var name = $("#empName").val();
+        var dept = $("#dept").val();
+
+        if (id == "" || name == "" || dept == "") {
+
+            $("#status").text(
+                "Please enter all employee details."
+            );
+
+            return;
+        }
+
+        $("#employeeTable tbody").append(
+
+            "<tr>" +
+            "<td>" + id + "</td>" +
+            "<td>" + name + "</td>" +
+            "<td>" + dept + "</td>" +
+            "<td><button class='select'>Select</button></td>" +
+            "</tr>"
+
+        );
+
+        $("#status").text(
+            "New employee added successfully."
+        );
+
+        $("#empId").val("");
+        $("#empName").val("");
+        $("#dept").val("");
+
+    });
+
+
+    // UPDATE EMPLOYEE
+    $("#update").click(function() {
+
+        if (selectedRow != null) {
+
+            selectedRow.find("td:eq(0)")
+                .text($("#empId").val());
+
+            selectedRow.find("td:eq(1)")
+                .text($("#empName").val());
+
+            selectedRow.find("td:eq(2)")
+                .text($("#dept").val());
+
+            selectedRow.removeClass("selected");
+
+            $("#status").text(
+                "Employee updated successfully."
+            );
+
+            selectedRow = null;
+        }
+
+    });
+
+
+    // REMOVE EMPLOYEE
+    $("#remove").click(function() {
+
+        if (selectedRow != null) {
+
+            selectedRow.remove();
+
+            $("#status").text(
+                "Employee removed successfully."
+            );
+
+            selectedRow = null;
+        }
+
+    });
+
+
+    // TABLE DIMENSIONS
+    $("#dimensions").click(function() {
+
+        var width = $("#employeeTable").width();
+
+        var height = $("#employeeTable").height();
+
+        $("#status").text(
+            "Table Width: " + width +
+            "px, Table Height: " + height + "px"
+        );
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

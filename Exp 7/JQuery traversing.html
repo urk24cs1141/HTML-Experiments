@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Employee Organization Explorer</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .project {
+            width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid black;
+        }
+
+        .team {
+            margin: 15px;
+            padding: 15px;
+            border: 1px solid black;
+        }
+
+        .employee {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid gray;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        button {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        #output {
+            font-weight: bold;
+            margin: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Employee Organization Explorer</h1>
+
+<div class="project" id="projectAlpha">
+
+    <h2>Project Alpha</h2>
+
+    <div class="team">
+
+        <h3>Development Team</h3>
+
+        <div class="employee">
+            Arun - Developer
+        </div>
+
+        <div class="employee senior">
+            Kavya - Senior Developer
+        </div>
+
+        <div class="employee">
+            Rahul - Developer
+        </div>
+
+    </div>
+
+
+    <div class="team">
+
+        <h3>Testing Team</h3>
+
+        <div class="employee">
+            Meena - Tester
+        </div>
+
+        <div class="employee senior">
+            Priya - Senior Tester
+        </div>
+
+        <div class="employee">
+            Karthik - Tester
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+
+<button id="select">Select Employee</button>
+<button id="parent">Show Parent Team</button>
+<button id="ancestors">Show All Ancestors</button>
+<button id="projectEmployees">Show Project Employees</button>
+<button id="teammates">Show Teammates</button>
+<button id="senior">Show Senior Employees</button>
+<button id="reset">Reset</button>
+
+<div id="output"></div>
+
+
+<script>
+
+$(document).ready(function() {
+
+    // Kavya is the selected employee
+    var selectedEmployee =
+        $("#projectAlpha .employee").eq(1);
+
+
+    // SELECT EMPLOYEE
+    $("#select").click(function() {
+
+        $(".highlight").removeClass("highlight");
+
+        selectedEmployee.addClass("highlight");
+
+        $("#output").text(
+            "Selected Employee : Kavya"
+        );
+
+    });
+
+
+    // PARENT TEAM
+    $("#parent").click(function() {
+
+        $(".highlight").removeClass("highlight");
+
+        selectedEmployee.parent()
+            .addClass("highlight");
+
+        $("#output").text(
+            "Parent Team : Development Team"
+        );
+
+    });
+
+
+    // ALL ANCESTORS
+    $("#ancestors").click(function() {
+
+        $(".highlight").removeClass("highlight");
+
+        selectedEmployee
+            .parents(".team, .project")
+            .addClass("highlight");
+
+        $("#output").text(
+            "Project : Project Alpha"
+        );
+
+    });
+
+
+    // PROJECT EMPLOYEES
+    $("#projectEmployees").click(function() {
+
+        $(".highlight").removeClass("highlight");
+
+        $("#projectAlpha")
+            .find(".employee")
+            .addClass("highlight");
+
+        $("#output").text(
+            "All employees in Project Alpha are highlighted."
+        );
+
+    });
+
+
+    // TEAMMATES
+    $("#teammates").click(function() {
+
+        $(".highlight").removeClass("highlight");
+
+        selectedEmployee
+            .siblings(".employee")
+            .addClass("highlight");
+
+        $("#output").text(
+            "Teammates : Arun, Rahul"
+        );
+
+    });
+
+
+    // SENIOR EMPLOYEES
+    $("#senior").click(function() {
+
+        $(".highlight").removeClass("highlight");
+
+        $(".employee")
+            .filter(".senior")
+            .addClass("highlight");
+
+        $("#output").text(
+            "Senior Employees : Kavya, Priya"
+        );
+
+    });
+
+
+    // RESET
+    $("#reset").click(function() {
+
+        $(".highlight").removeClass("highlight");
+
+        $("#output").text("");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
