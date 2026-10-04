@@ -1,0 +1,943 @@
+Microsoft Windows [Version 10.0.26200.9457]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\raj>mongosh
+Current Mongosh Log ID: 6ac2687b1ce50b75bef804ad
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.12.0
+Using MongoDB:          9.0.2
+Using Mongosh:          2.12.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-10-04T18:56:05.028+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> mongosh
+ReferenceError: mongosh is not defined
+test> use collegeDB
+switched to db collegeDB
+collegeDB> db.createCollection("students")
+{ ok: 1 }
+collegeDB> db.students.insertMany([
+|   { rollno: 101, name: "Arun", department: "CSE", year: 3, marmarks: 85, city: "Hyderabad" },
+|   { rollno: 102, name: "Priya", department: "ECE", year: 3, mamarks: 92, city: "Chennai" },
+|   { rollno: 103, name: "Karthik", department: "CSE", year: 2, marks: 78, city: "Bangalore" },
+|   { rollno: 104, name: "Meena", department: "EEE", year: 3, mamarks: 88, city: "Hyderabad" },
+|   { rollno: 105, name: "Rahul", department: "CSE", year: 4, mamarks: 67, city: "Chennai" },
+|   { rollno: 106, name: "Sneha", department: "ECE", year: 2, mamarks: 81, city: "Bangalore" },
+|   { rollno: 107, name: "Vijay", department: "CSE", year: 3, mamarks: 95, city: "Hyderabad" },
+|   { rollno: 108, name: "Anjali", department: "EEE", year: 4, mmarks: 73, city: "Chennai" },
+|   { rollno: 109, name: "Ravi", department: "ECE", year: 3, marmarks: 89, city: "Bangalore" },
+|   { rollno: 110, name: "Divya", department: "CSE", year: 3, mamarks: 91, city: "Hyderabad" }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6ac268a51ce50b75bef804ae'),
+    '1': ObjectId('6ac268a51ce50b75bef804af'),
+    '2': ObjectId('6ac268a51ce50b75bef804b0'),
+    '3': ObjectId('6ac268a51ce50b75bef804b1'),
+    '4': ObjectId('6ac268a51ce50b75bef804b2'),
+    '5': ObjectId('6ac268a51ce50b75bef804b3'),
+    '6': ObjectId('6ac268a51ce50b75bef804b4'),
+    '7': ObjectId('6ac268a51ce50b75bef804b5'),
+    '8': ObjectId('6ac268a51ce50b75bef804b6'),
+    '9': ObjectId('6ac268a51ce50b75bef804b7')
+  }
+}
+collegeDB> db.students.find()
+[
+  {
+    _id: ObjectId('6ac26478f882130aa1026365'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 90,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026366'),
+    rollno: 102,
+    name: 'Priya',
+    department: 'ECE',
+    year: 3,
+    marks: 92
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026367'),
+    rollno: 103,
+    name: 'Karthik',
+    department: 'CSE',
+    year: 2,
+    marks: 78,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026368'),
+    rollno: 104,
+    name: 'Meena',
+    department: 'EEE',
+    year: 3,
+    marks: 88
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636a'),
+    rollno: 106,
+    name: 'Divya',
+    department: 'ECE',
+    year: 2,
+    marks: 81,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636b'),
+    rollno: 107,
+    name: 'Sanjay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Coimbatore',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636c'),
+    rollno: 108,
+    name: 'Anitha',
+    department: 'EEE',
+    year: 4,
+    marks: 73,
+    city: 'Salem'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636d'),
+    rollno: 109,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 89,
+    city: 'Madurai',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636e'),
+    rollno: 110,
+    name: 'Nithya',
+    department: 'ECE',
+    year: 3,
+    marks: 84,
+    city: 'Trichy'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804ae'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 85,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804af'),
+    rollno: 102,
+    name: 'Priya',
+    department: 'ECE',
+    year: 3,
+    marks: 92,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b0'),
+    rollno: 103,
+    name: 'Karthik',
+    department: 'CSE',
+    year: 2,
+    marks: 78,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b1'),
+    rollno: 104,
+    name: 'Meena',
+    department: 'EEE',
+    year: 3,
+    marks: 88,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b2'),
+    rollno: 105,
+    name: 'Rahul',
+    department: 'CSE',
+    year: 4,
+    marks: 67,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b3'),
+    rollno: 106,
+    name: 'Sneha',
+    department: 'ECE',
+    year: 2,
+    marks: 81,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b4'),
+    rollno: 107,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b5'),
+    rollno: 108,
+    name: 'Anjali',
+    department: 'EEE',
+    year: 4,
+    marks: 73,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b6'),
+    rollno: 109,
+    name: 'Ravi',
+    department: 'ECE',
+    year: 3,
+    marks: 89,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b7'),
+    rollno: 110,
+    name: 'Divya',
+    department: 'CSE',
+    year: 3,
+    marks: 91,
+    city: 'Hyderabad'
+  }
+]
+collegeDB> db.students.find({ department: "CSE" })
+[
+  {
+    _id: ObjectId('6ac26478f882130aa1026365'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 90,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026367'),
+    rollno: 103,
+    name: 'Karthik',
+    department: 'CSE',
+    year: 2,
+    marks: 78,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636b'),
+    rollno: 107,
+    name: 'Sanjay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Coimbatore',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636d'),
+    rollno: 109,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 89,
+    city: 'Madurai',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804ae'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 85,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b0'),
+    rollno: 103,
+    name: 'Karthik',
+    department: 'CSE',
+    year: 2,
+    marks: 78,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b2'),
+    rollno: 105,
+    name: 'Rahul',
+    department: 'CSE',
+    year: 4,
+    marks: 67,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b4'),
+    rollno: 107,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b7'),
+    rollno: 110,
+    name: 'Divya',
+    department: 'CSE',
+    year: 3,
+    marks: 91,
+    city: 'Hyderabad'
+  }
+]
+collegeDB> db.students.find({ marks: { $gt: 80 } })
+[
+  {
+    _id: ObjectId('6ac26478f882130aa1026365'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 90,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026366'),
+    rollno: 102,
+    name: 'Priya',
+    department: 'ECE',
+    year: 3,
+    marks: 92
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026368'),
+    rollno: 104,
+    name: 'Meena',
+    department: 'EEE',
+    year: 3,
+    marks: 88
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636a'),
+    rollno: 106,
+    name: 'Divya',
+    department: 'ECE',
+    year: 2,
+    marks: 81,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636b'),
+    rollno: 107,
+    name: 'Sanjay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Coimbatore',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636d'),
+    rollno: 109,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 89,
+    city: 'Madurai',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636e'),
+    rollno: 110,
+    name: 'Nithya',
+    department: 'ECE',
+    year: 3,
+    marks: 84,
+    city: 'Trichy'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804ae'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 85,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804af'),
+    rollno: 102,
+    name: 'Priya',
+    department: 'ECE',
+    year: 3,
+    marks: 92,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b1'),
+    rollno: 104,
+    name: 'Meena',
+    department: 'EEE',
+    year: 3,
+    marks: 88,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b3'),
+    rollno: 106,
+    name: 'Sneha',
+    department: 'ECE',
+    year: 2,
+    marks: 81,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b4'),
+    rollno: 107,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b6'),
+    rollno: 109,
+    name: 'Ravi',
+    department: 'ECE',
+    year: 3,
+    marks: 89,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b7'),
+    rollno: 110,
+    name: 'Divya',
+    department: 'CSE',
+    year: 3,
+    marks: 91,
+    city: 'Hyderabad'
+  }
+]
+collegeDB> db.students.find(
+|   {},
+|   { name: 1, marks: 1, _id: 0 }
+| )
+[
+  { name: 'Arun', marks: 90 },
+  { name: 'Priya', marks: 92 },
+  { name: 'Karthik', marks: 78 },
+  { name: 'Meena', marks: 88 },
+  { name: 'Divya', marks: 81 },
+  { name: 'Sanjay', marks: 95 },
+  { name: 'Anitha', marks: 73 },
+  { name: 'Vijay', marks: 89 },
+  { name: 'Nithya', marks: 84 },
+  { name: 'Arun', marks: 85 },
+  { name: 'Priya', marks: 92 },
+  { name: 'Karthik', marks: 78 },
+  { name: 'Meena', marks: 88 },
+  { name: 'Rahul', marks: 67 },
+  { name: 'Sneha', marks: 81 },
+  { name: 'Vijay', marks: 95 },
+  { name: 'Anjali', marks: 73 },
+  { name: 'Ravi', marks: 89 },
+  { name: 'Divya', marks: 91 }
+]
+collegeDB> db.students.find({
+|   department: "CSE",
+|   year: 3
+| })
+[
+  {
+    _id: ObjectId('6ac26478f882130aa1026365'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 90,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636b'),
+    rollno: 107,
+    name: 'Sanjay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Coimbatore',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636d'),
+    rollno: 109,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 89,
+    city: 'Madurai',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804ae'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 85,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b4'),
+    rollno: 107,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b7'),
+    rollno: 110,
+    name: 'Divya',
+    department: 'CSE',
+    year: 3,
+    marks: 91,
+    city: 'Hyderabad'
+  }
+]
+collegeDB> db.students.find({
+|   $or: [
+|     { department: "CSE" },
+|     { department: "ECE" }
+|   ]
+| })
+[
+  {
+    _id: ObjectId('6ac26478f882130aa1026365'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 90,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026366'),
+    rollno: 102,
+    name: 'Priya',
+    department: 'ECE',
+    year: 3,
+    marks: 92
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026367'),
+    rollno: 103,
+    name: 'Karthik',
+    department: 'CSE',
+    year: 2,
+    marks: 78,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636a'),
+    rollno: 106,
+    name: 'Divya',
+    department: 'ECE',
+    year: 2,
+    marks: 81,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636b'),
+    rollno: 107,
+    name: 'Sanjay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Coimbatore',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636d'),
+    rollno: 109,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 89,
+    city: 'Madurai',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636e'),
+    rollno: 110,
+    name: 'Nithya',
+    department: 'ECE',
+    year: 3,
+    marks: 84,
+    city: 'Trichy'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804ae'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 85,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804af'),
+    rollno: 102,
+    name: 'Priya',
+    department: 'ECE',
+    year: 3,
+    marks: 92,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b0'),
+    rollno: 103,
+    name: 'Karthik',
+    department: 'CSE',
+    year: 2,
+    marks: 78,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b2'),
+    rollno: 105,
+    name: 'Rahul',
+    department: 'CSE',
+    year: 4,
+    marks: 67,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b3'),
+    rollno: 106,
+    name: 'Sneha',
+    department: 'ECE',
+    year: 2,
+    marks: 81,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b4'),
+    rollno: 107,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b6'),
+    rollno: 109,
+    name: 'Ravi',
+    department: 'ECE',
+    year: 3,
+    marks: 89,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b7'),
+    rollno: 110,
+    name: 'Divya',
+    department: 'CSE',
+    year: 3,
+    marks: 91,
+    city: 'Hyderabad'
+  }
+]
+collegeDB> db.students.find().sort({ marks: 1 })
+[
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b2'),
+    rollno: 105,
+    name: 'Rahul',
+    department: 'CSE',
+    year: 4,
+    marks: 67,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636c'),
+    rollno: 108,
+    name: 'Anitha',
+    department: 'EEE',
+    year: 4,
+    marks: 73,
+    city: 'Salem'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b5'),
+    rollno: 108,
+    name: 'Anjali',
+    department: 'EEE',
+    year: 4,
+    marks: 73,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026367'),
+    rollno: 103,
+    name: 'Karthik',
+    department: 'CSE',
+    year: 2,
+    marks: 78,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b0'),
+    rollno: 103,
+    name: 'Karthik',
+    department: 'CSE',
+    year: 2,
+    marks: 78,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636a'),
+    rollno: 106,
+    name: 'Divya',
+    department: 'ECE',
+    year: 2,
+    marks: 81,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b3'),
+    rollno: 106,
+    name: 'Sneha',
+    department: 'ECE',
+    year: 2,
+    marks: 81,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636e'),
+    rollno: 110,
+    name: 'Nithya',
+    department: 'ECE',
+    year: 3,
+    marks: 84,
+    city: 'Trichy'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804ae'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 85,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026368'),
+    rollno: 104,
+    name: 'Meena',
+    department: 'EEE',
+    year: 3,
+    marks: 88
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b1'),
+    rollno: 104,
+    name: 'Meena',
+    department: 'EEE',
+    year: 3,
+    marks: 88,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636d'),
+    rollno: 109,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 89,
+    city: 'Madurai',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b6'),
+    rollno: 109,
+    name: 'Ravi',
+    department: 'ECE',
+    year: 3,
+    marks: 89,
+    city: 'Bangalore'
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026365'),
+    rollno: 101,
+    name: 'Arun',
+    department: 'CSE',
+    year: 3,
+    marks: 90,
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b7'),
+    rollno: 110,
+    name: 'Divya',
+    department: 'CSE',
+    year: 3,
+    marks: 91,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac26478f882130aa1026366'),
+    rollno: 102,
+    name: 'Priya',
+    department: 'ECE',
+    year: 3,
+    marks: 92
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804af'),
+    rollno: 102,
+    name: 'Priya',
+    department: 'ECE',
+    year: 3,
+    marks: 92,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636b'),
+    rollno: 107,
+    name: 'Sanjay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Coimbatore',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b4'),
+    rollno: 107,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Hyderabad'
+  }
+]
+collegeDB> db.students.find()
+|   .sort({ marks: -1 })
+|   .limit(3)
+[
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804b4'),
+    rollno: 107,
+    name: 'Vijay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Hyderabad'
+  },
+  {
+    _id: ObjectId('6ac2647ff882130aa102636b'),
+    rollno: 107,
+    name: 'Sanjay',
+    department: 'CSE',
+    year: 3,
+    marks: 95,
+    city: 'Coimbatore',
+    status: 'Active'
+  },
+  {
+    _id: ObjectId('6ac268a51ce50b75bef804af'),
+    rollno: 102,
+    name: 'Priya',
+    department: 'ECE',
+    year: 3,
+    marks: 92,
+    city: 'Chennai'
+  }
+]
+collegeDB> db.students.countDocuments({ department: "CSE" })
+9
+collegeDB> db.students.updateOne(
+|   { rollno: 101 },
+|   { $set: { marks: 90 } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+collegeDB> db.students.updateMany(
+|   { department: "CSE" },
+|   { $set: { status: "Active" } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 9,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+collegeDB> db.students.deleteOne({ rollno: 105 })
+{ acknowledged: true, deletedCount: 1 }
+collegeDB> db.students.distinct("department")
+[ 'CSE', 'ECE', 'EEE' ]
+collegeDB> db.students.aggregate([
+|   {
+|     $group: {
+|       _id: "$department",
+|       averageMarks: { $avg: "$marks" }
+|     }
+|   }
+| ])
+[
+  { _id: 'ECE', averageMarks: 86.5 },
+  { _id: 'CSE', averageMarks: 87.625 },
+  { _id: 'EEE', averageMarks: 80.5 }
+]
+collegeDB> C:\Users\raj\Desktop\Web Tech Lab\Web lab Exp 9 1141.docxC:\Users\raj\Desktop\Web Tech Lab\Web lab Exp 9 1141.docxC:\UcollegeDB> C:\Users\raj\Desktop\Web Tech Lab\Web lab Exp 9 1141.docxC:\Users\raj\Desktop\Web Tech Lab\Web lab Exp 9 1141.docxC:\Users\raj\Desktop\Web Tech Lab\Web lab Exp 9 1141.docx
+collegeDB>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
